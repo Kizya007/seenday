@@ -1,0 +1,25 @@
+.unload {
+  display: flex;
+
+  .left-block {
+    @include start-at("xslg") {
+      width: 35%;
+    }
+    main {
+      padding-top: 0;
+
+      padding-bottom: 15px;
+    }
+  }
+  .info-load {
+    border: none;
+    
+  }
+}
+
+@include active-by("xslg") {
+  .unload {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

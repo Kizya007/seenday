@@ -1,0 +1,20 @@
+.block {
+  font-size: 14px;
+  line-height: 1.2;
+  border-left: solid 10px;
+  border-radius: 3px;
+
+  &-title {
+    font-size: 20px;
+    @include active-by("xslg") {
+      font-size: 18px;
+    }
+  }
+
+  &[data-status="1"] {
+    border-color: var(--color_success);
+  }
+  &[data-status="2"] {
+    border-color: var(--color_danger);
+  }
+}
