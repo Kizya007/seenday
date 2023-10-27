@@ -33,8 +33,8 @@ const { data: tasks, execute } = useAPIFetch(urlTasks, {
 });
 
 async function getInfo(idTask) {
-  const urlTasks = `https://dev-cabinet.seenday.com/e.scripts?page=pages:unload&event=get&unload_id=${idTask}`;
-  const { data: task, execute: executeTask } = useAPIFetch(urlTasks, {
+  const urlTask = `https://dev-cabinet.seenday.com/e.scripts?page=pages:unload&event=get&unload_id=${idTask}`;
+  const { data: task, execute: executeTask } = useAPIFetch(urlTask, {
     immediate: false,
     transform: res => {
       const parsedJSON = JSON.parse(res);

@@ -3,7 +3,7 @@
     <p class="title text-bold">Ссылка для скачивания архива Выгрузки (.zip):</p>
     <div class="block-links">
       <a class="link" :href="downloadLink" target="_blank">{{ downloadLink }}</a>
-      <span class="span-link" @click="copyLinkToClipboard">скопировать ссылку</span>
+      <span class="span-link" @click="copyLinkToClipboard(downloadLink)">скопировать ссылку</span>
     </div>
     <button @click="close" class="btn-close">Закрыть</button>
   </div>
@@ -24,13 +24,11 @@ const props = defineProps({
     default: ""
   }
 });
-async function copyLinkToClipboard() {
-  if (props.task) {
-    try {
-      await navigator.clipboard.writeText(props.task.downloadLink);
-    } catch (error) {
-      console.error("Error copying link to clipboard:", error);
-    }
+async function copyLinkToClipboard(copyValue) {
+  try {
+    await navigator.clipboard.writeText(copyValue);
+  } catch (error) {
+    console.error("Error copying link to clipboard:", error);
   }
 }
 function close() {
